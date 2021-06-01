@@ -1,0 +1,35 @@
+* {
+    font-family: 'Quicksand', sans-serif;
+}
+
+body {
+    background: linear-gradient(to right, #AA076B, #61045F) !important;
+}
+
+.header * {
+    color: rgb(190, 188, 185);
+}
+
+.header p {
+    margin-top: -5px;
+}
+
+.header-container {
+    background-color: rgba(32, 32, 32, 0.726);
+}
+
+.card, .card-body {
+    background-color: rgba(187, 183, 183, 0) !important;
+    color: black;
+}
+
+.card {
+    width: 18rem;
+    border-width: 5px;
+}
+
+.col {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+}

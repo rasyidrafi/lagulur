@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include('../layout/_head') %>
+    <link rel="stylesheet" href="/css/global.css">
+
+    <body>
+        <div class="header-container">
+            <div class="header container text-center px-3">
+                <h2 class="pt-2">Youtube Player Audio Only</h2>
+                <p class="pb-2 fst-italic">by R45Y1D</p>
+            </div>
+        </div>
+        <br>
+        <div class="container">
+            <div class="row" style="margin-bottom: 15px;">
+                <div class="col">
+                    <div class="card" style="width: 18rem;">
+                        <div class="card-body">
+                            <h5 class="card-title">Play from url</h5>
+                            <p class="card-text">Memutar video Youtube sebagai Audio, Masukkan url di bawah</p>
+                            <input id="urlbox" class="w-100" placeholder="Masukkan Url" type="text" required>
+                            <p></p>
+                            <button id="playurl" class="btn btn-danger w-100">Play</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card" style="width: 18rem;">
+                        <div class="card-body">
+                            <h5 class="card-title">Play from title</h5>
+                            <p class="card-text pb-4">Mainkan musik berdasarkan judul</p>
+                            <input id="judulbox" class="w-100" placeholder="Masukkan Judul" type="text" required>
+                            <p></p>
+                            <button id="playjudul" class="btn btn-danger w-100">Play</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col">
+                    <div class="card" style="width: 18rem;">
+                        <div class="card-body">
+                            <h5 class="card-title">Play random</h5>
+                            <p class="card-text pb-4">Mainkan musik secara acak</p>
+                            <br><br>
+                            <a href="" id="playjudul" class="mt-1 btn btn-danger w-100">Play</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <%- include('../layout/_asset') %>
+            <script>
+                $('#playurl').click(() => location.replace("/yt/url/" + $('#urlbox').val()))
+                $('#playjudul').click(() => location.replace("/yt/title/" + $('#judulbox').val()))
+            </script>
+    </body>
+
+</html>

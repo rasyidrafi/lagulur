@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+
+<%- include('../layout/_head') %>
+    <link rel="stylesheet" href="/css/player.css">
+
+    <body>
+
+        <h3 class="judul">
+            <%= title %>
+        </h3>
+
+        <img class="poto" src="<%= thumb %>" alt="thumbnail">
+        <audio class="audio" controls autoplay>
+            <source src="<%= direct %>">
+        </audio>
+
+        <h4 class="lirik">Lirik</h4>
+        <div class="classLirik sc3" id="isiLirik">Jika lirik tidak cocok, masukkan judul secara manual</div>
+        <hr class="pemisah">
+        <div class="classCari" id="cariGan">
+            <label for="manual" class="d-block text-center">Judul :</label>
+            <input class="d-block mx-auto text-start" type="text" id="manual" name="manual">
+            <button id="cariManual" type="button" class="btn btn-primary border-0 d-block mx-auto mt-2"><b>Search</b>
+            </button>
+        </div>
+
+        <%- include('../layout/_asset') %>
+            <script src="/js/player.js"></script>
+            <script>
+                getLirk('<%= title %>');
+            </script>
+    </body>
+
+</html>
