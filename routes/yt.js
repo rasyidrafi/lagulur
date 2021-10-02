@@ -9,8 +9,8 @@ router.get('/', function (req, res, next) {
     res.render('pages/yt', { title: '' });
 });
 
-router.get('/url/:url', async (req, res) => {
-    const { url } = req.params;
+router.post('/url', async (req, res) => {
+    const { url } = req.body;
     if (!url) return res.send("No Url Given")
     const getYt = await ytdl.getInfo(url);
     const filter = ytdl.filterFormats(getYt.formats, 'audioonly');
@@ -18,11 +18,11 @@ router.get('/url/:url', async (req, res) => {
     const long = getYt.videoDetails.thumbnails.length - 1;
     const thumb = getYt.videoDetails.thumbnails[long].url;
     const title = getYt.videoDetails.title;
-    res.render("pages/player", { direct, title, thumb });
+    res.render("pages/player", { direct, judul: title, thumb });
 })
 
-router.get('/title/:title', async (req, res) => {
-    const { title } = req.params;
+router.post('/title', async (req, res) => {
+    const { title } = req.body;
     if (!title) return res.send("No Title Given")
     const search = await yts(title);
     const url = search.all[0].url;
@@ -32,7 +32,7 @@ router.get('/title/:title', async (req, res) => {
     const long = getYt.videoDetails.thumbnails.length - 1;
     const thumb = getYt.videoDetails.thumbnails[long].url;
     const theTitle = getYt.videoDetails.title;
-    res.render("pages/player", { direct, title: theTitle, thumb });
+    res.render("pages/player", { direct, judul: theTitle, thumb });
 });
 
 // router.get('/random', async (req, res) => {
